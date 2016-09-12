@@ -1,0 +1,32 @@
+Principal\Auth\Entity\Sistema:
+  type: entity
+  table: sistema
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    nombre:
+      type: string
+      length: 255
+      nullable: false
+      unique: true
+    nombre:
+      type: string
+      length: 255
+      nullable: false
+      unique: true
+    apiKey:
+      type: string
+      length: 255
+      nullable: false
+      unique: true
+      column: api_key
+    createdAt:
+      type: datetime
+      column: created_at
+    updatedAt:
+      type: datetime
+      column: updated_at
+      nullable: true

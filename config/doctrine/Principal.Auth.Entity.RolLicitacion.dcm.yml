@@ -1,0 +1,36 @@
+Principal\Auth\Entity\RolLicitacion:
+  type: entity
+  table: rol_licitacion
+  uniqueConstraints:
+    rol_licitacion_usuario_idx:
+      columns: [id_rol, id_licitacion, id_usuario]
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    idLicitacion:
+      type: integer
+      column: id_licitacion
+      nullable: false
+    idUsuario:
+      type: integer
+      column: id_usuario
+      nullable: false
+    createdAt:
+      type: datetime
+      column: created_at
+    updatedAt:
+      type: datetime
+      column: updated_at
+      nullable: true
+  manyToOne:
+    rol:
+      targetEntity: Principal\Auth\Entity\Rol
+      inversedBy: rolLicitaciones
+      cascade: [persist]
+      joinColumn:
+        name: id_rol
+        referencedColumnName: id
+        nullable: false

@@ -1,0 +1,30 @@
+Principal\Auth\Entity\Rol:
+  type: entity
+  table: rol
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    nombre:
+      type: string
+      length: 255
+      nullable: false
+      unique: true
+    createdAt:
+      type: datetime
+      column: created_at
+    updatedAt:
+      type: datetime
+      column: updated_at
+      nullable: true
+  oneToMany:
+    permisos:
+      targetEntity: Principal\Auth\Entity\Permiso
+      mappedBy: rol
+      cascade: []
+    rolLicitaciones:
+      targetEntity: Principal\Auth\Entity\RolLicitacion
+      mappedBy: rol
+      cascade: []

@@ -1,0 +1,41 @@
+Principal\Auth\Entity\Recurso:
+  type: entity
+  table: recurso
+  uniqueConstraints:
+    modulo_accion_idx:
+      columns: [id_modulo, id_accion]
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    createdAt:
+      type: datetime
+      column: created_at
+    updatedAt:
+      type: datetime
+      column: updated_at
+      nullable: true
+  manyToOne:
+    accion:
+      targetEntity: Principal\Auth\Entity\Accion
+      inversedBy: recursos
+      cascade: [persist]
+      joinColumn:
+        name: id_accion
+        referencedColumnName: id
+        nullable: false
+    modulo:
+      targetEntity: Principal\Auth\Entity\Modulo
+      inversedBy: recursos
+      cascade: [persist]
+      joinColumn:
+        name: id_modulo
+        referencedColumnName: id
+        nullable: false
+  oneToMany:
+      permisos:
+        targetEntity: Principal\Auth\Entity\Permiso
+        mappedBy: recurso
+        cascade: []

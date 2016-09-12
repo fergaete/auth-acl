@@ -1,0 +1,6 @@
+.idea
+cache/*
+vendor
+logs/application/*
+config/app/config.php
+tests/data/*

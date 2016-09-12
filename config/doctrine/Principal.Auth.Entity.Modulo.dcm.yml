@@ -1,0 +1,26 @@
+Principal\Auth\Entity\Modulo:
+  type: entity
+  table: modulo
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    nombre:
+      type: string
+      length: 255
+      nullable: false
+      unique: true
+    createdAt:
+      type: datetime
+      column: created_at
+    updatedAt:
+      type: datetime
+      column: updated_at
+      nullable: true
+  oneToMany:
+    recursos:
+      targetEntity:  Principal\Auth\Entity\Recurso
+      mappedBy: modulo
+      cascade: []
